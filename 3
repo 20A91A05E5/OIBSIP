@@ -1,0 +1,149 @@
+import java.util.Scanner;
+class bankacc{
+    Scanner sc=new Scanner(System.in);
+    String name, userName, password;
+    int balance = 0,i,withdraw=0,deposit=0,accountNo;
+    int transactions = 0;
+    String transHist = "";
+
+    public void register()
+    {
+        System.out.println("\nWELCOME ATM SYSTEM\n");
+        System.out.println("1.Register \n2.Exit");
+        System.out.print("Enter Your Choice - ");
+        i=sc.nextInt();
+        sc.nextLine();
+        if(i==1)
+        {
+
+            System.out.println("Enter Your Username : ");
+            userName = sc.nextLine();
+            System.out.println("Enter Your Password : ");
+            password = sc.nextLine();
+            System.out.println("Enter Your Account Number : ");
+            accountNo = sc.nextInt();
+            System.out.println("\nRegistration completed..kindly login");
+        }
+
+    }
+    public void login(){
+        String uname,pwd;
+        System.out.println("Enter Your Username : ");
+        uname = sc.nextLine();
+        sc.nextLine();
+        System.out.println("Enter Your Password : ");
+        pwd = sc.nextLine();
+       
+        if((userName==uname)&&(password==pwd)){
+            System.out.println("\nLogin successful");
+        }
+        else{
+            System.out.println("\nIncorrect credentials");
+        }
+
+
+    }
+    public void withdraw(){
+        int withdraw;
+        System.out.println("Enter amount to be withdraw : ");
+        withdraw=sc.nextInt();
+        if(withdraw<=balance)
+        {
+            balance=balance-withdraw;
+            System.out.println("withdraw successful ");
+        }
+        else
+        {
+            System.out.println("Insuffient balance ");
+        }
+        transHist=transHist+Integer.toString(withdraw)+" withdrawed\n";
+
+    }
+    public void deposit(){
+        int deposit;
+        System.out.println("Enter amount to be deposit : ");
+        deposit=sc.nextInt();
+        balance=balance+deposit;
+        System.out.println("deposit successful ");
+
+        transHist=transHist+Integer.toString(deposit)+" deposited\n";
+
+    }
+    public void checkBalance(){
+
+        System.out.println("Balance:"+balance);
+
+    }
+    public void transfer(){
+        String r_username,r_uid;
+        int amt;
+        System.out.println("Enter receipt username");
+        r_username=sc.nextLine();
+        sc.nextLine();
+        System.out.println("Receipt Account Number");
+        r_uid=sc.nextLine();
+        System.out.println("Enter amount to be transfer");
+        amt=sc.nextInt();
+        balance=balance-amt;
+        System.out.println("Amount transferred successfully");
+        transHist=transHist+Integer.toString(amt)+" transferred\n";
+
+    }
+    public void transHistory(){
+        System.out.println(transHist);
+
+
+    }
+
+}
+
+public class Main {
+
+    public static void main(String []args) {
+        Scanner sc=new Scanner(System.in);
+        bankacc b=new bankacc();
+        int i;
+
+        b.register();
+        System.out.println("\n1.Login \n2.Exit");
+        System.out.print("Enter Your Choice - ");
+        i=sc.nextInt();
+        if(i==1){b.login();
+        while(true) {
+            
+            
+            if(i==1){
+                
+                do{
+                    System.out.println("\n1.Withdraw \n2.Deposit \n3.Transfer \n4.Check Balance \n5.Transaction History \n6.Exit");
+                    i=sc.nextInt();
+                    switch(i)
+                    {
+                        case 1:    b.withdraw();
+                            break;
+                        case 2:    b.deposit();
+                            break;
+                        case 3:    b.transfer();
+                            break;
+                        case 4:    b.checkBalance();
+                            break;
+                        case 5:    b.transHistory();
+                            break;
+                        case 6:    System.out.println("Logged out successfully");
+                            break;
+                    }
+
+                }while(i!=6);
+
+            }
+            else
+            {
+                break;
+            }
+
+        }
+        }
+    
+
+    }
+}
