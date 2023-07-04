@@ -1,0 +1,47 @@
+           if(i==2)
+           System.out.println("2nd attempt");
+           if(i==3)
+           System.out.println("3rd attempt");
+          System.out.println("Guess the number between 1 to 100");
+         n=sc.nextInt();
+         s=(int)(Math.random()*(max-min+1)+min);
+         System.out.println("System generated number is ");
+         System.out.println(s);
+         if(n==s)
+        {
+             System.out.println("Your guess is correct");
+             switch(i)
+             {
+                case 1:
+                  System.out.println("In 1st attempt u guessed correct");
+                   System.out.println("Your score is 500");
+                   break;
+                case 2:
+                  System.out.println("In 2nd attempt u guessed correct");
+                   System.out.println("Your score is 400");
+                   break;
+                case 3:
+                  System.out.println("In 3rd attempt u guessed correct");
+                   System.out.println("Your score is 300");
+                   break;
+             }
+             break;
+        }  
+        else if(n<s){
+            System.out.println("Guess number is less than System number");
+             System.out.println(n+" is less than "+s);
+             System.out.println();
+        }
+        else {
+             System.out.println("Guess number is greater than System number");
+            System.out.println(n+" is greater than "+s);
+            System.out.println();
+        }
+        if(i==3){
+            System.out.println("Attempts completed");
+             System.out.println("Better Luck next time");
+        }
+         i++;
+    }
+}
+}
