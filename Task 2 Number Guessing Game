@@ -1,3 +1,16 @@
+import java.lang.Math;
+ import java.util.Scanner;
+ public class Guess_Number{
+     public static void main(String[] args){
+         
+        int i=1,n,s,min=1,max=100;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Number of attempts:3");
+        while(i<=3){
+             if(i==1)
+           System.out.println("1st attempt");
+
+
            if(i==2)
            System.out.println("2nd attempt");
            if(i==3)
